@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Y.K STORE</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f4f4f4; }
+    nav { background: #222; padding: 1em 0; }
+    nav ul { list-style: none; display: flex; justify-content: center; margin: 0; padding: 0; }
+    nav ul li { margin: 0 2em; }
+    nav ul li a { color: #fff; text-decoration: none; font-weight: bold; }
+    section { max-width: 600px; margin: 2em auto; background: #fff; padding: 2em; border-radius: 8px; }
+    .product-link { display: block; margin-top: 1em; font-size: 1.1em; color: #1976D2; }
+    .contact-info { margin-top: 1em; }
+    .qr-img { width: 220px; margin: 1em 0; display: block; }
+    .btn { display: inline-block; background: #1976D2; color: #fff; padding: 0.5em 1.5em; border: none; border-radius: 4px; text-decoration: none; margin-top: 1em; cursor: pointer; }
+    .hidden { display: none; }
+    h1, h2 { color: #1976D2; }
+  </style>
+  <script>
+    function showSection(id) {
+      document.getElementById('home').classList.add('hidden');
+      document.getElementById('products').classList.add('hidden');
+      document.getElementById('contact').classList.add('hidden');
+      document.getElementById(id).classList.remove('hidden');
+    }
+    window.onload = function() {
+      showSection('home');
+      document.querySelectorAll('nav a').forEach(function(link) {
+        link.onclick = function(e) {
+          e.preventDefault();
+          showSection(this.getAttribute('data-section'));
+        };
+      });
+    };
+  </script>
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="#" data-section="home">Home</a></li>
+      <li><a href="#" data-section="products">Our Products</a></li>
+      <li><a href="#" data-section="contact">Call Us</a></li>
+    </ul>
+  </nav>
+
+  <section id="home">
+    <h1>Welcome to Y.K STORE!</h1>
+    <p>
+      Discover the latest and greatest products curated just for you. At <strong>Y.K STORE</strong>, we are dedicated to bringing you unbeatable deals and a wide variety of quality goods. Explore our products and contact us easily for any inquiries!
+    </p>
+    <a href="#" class="btn" onclick="showSection('products')">See Our Products</a>
+  </section>
+
+  <section id="products" class="hidden">
+    <h2>Our Products</h2>
+    <p>
+      To view our full product catalog, visit our Telegram store channel:
+      <a class="product-link" href="https://t.me/Y_K50" target="_blank">Y.K STORE on Telegram</a>
+    </p>
+    <p>
+      You can find detailed product lists, prices, and updates directly on our Telegram!
+    </p>
+    <a href="#" class="btn" onclick="showSection('contact')">Contact Us</a>
+  </section>
+
+  <section id="contact" class="hidden">
+    <h2>Call Us / Contact</h2>
+    <div class="contact-info">
+      <p><strong>Phone:</strong> <a href="tel:01019506771">01019506771</a></p>
+      <p><strong>Telegram:</strong> <a href="https://t.me/Y_K50" target="_blank">https://t.me/Y_K50</a></p>
+      <p>Or scan the QR code below to contact us on Telegram:</p>
+      <img src="image1" alt="Telegram QR Code" class="qr-img">
+      <p>@KAREEM_691</p>
+    </div>
+    <a href="#" class="btn" onclick="showSection('home')">Back to Home</a>
+  </section>
+</body>
+</html>
